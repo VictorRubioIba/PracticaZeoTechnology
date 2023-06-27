@@ -1,0 +1,34 @@
+
+
+
+
+
+<div class="card text-bg-white mb-3" >
+    <div class="card-header">Usuarios</div>
+    <div class="card-body">
+      <h5 class="card-title">Listado de Usuarios</h5>
+    <div class="my-2 text-left" >
+    <button class="btn btn-rounded btn-primary" type ="button" [routerLink]="['/users/new-user']" > Crear Usuario</button>
+    </div>
+    <table class=" table table-bordered table-striped" *ngIf="users.length>0">
+
+    <thead>
+        <tr>
+            <th> Nombre </th>
+            <th> Edad</th>
+            <th> Email </th>
+            <th> Password </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let user of users">
+                <td class="text-uppercase">{{  user.name}}</td>
+                <td class="number">{{  user.age}}</td>
+                <td class="email">{{  user.email }}</td>
+                <td class="password">**********</td>
+                <!--{{  user.password}}-->
+        </tr>
+
+    </tbody>
+    </table>
+  </div>

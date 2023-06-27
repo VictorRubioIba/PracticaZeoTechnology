@@ -69,7 +69,7 @@ public class ControllerTest {
     void testFindAllByName() throws Exception {
 
         try {
-            when(usersController.findUserByName(any(String.class))).thenReturn(ResponseEntity.ok(USER_1));
+            when(usersController.findUserByName(any(String.class))).thenReturn(true);
         } catch (Exception e) {
             e.printStackTrace();
         }

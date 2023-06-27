@@ -1,0 +1,93 @@
+<div class="my-2 card bg-white text-dark mb-3">
+
+    <div class="card-header">{{titulo}}</div>
+
+    <div class="card-body ">
+        <form #clienteForm="ngForm">
+            
+                <div class="form-group row ">
+                    <label for="nombre" class="col-form-label col-sm-2 text-dark"> Nombre</label>
+                    <div class="col-sm-6 ">
+                        <input type="text" class="form-control" [(ngModel)]="user.name" name='name' placeholder="Introduzca su nombre" required minlength="4" #name="ngModel">
+                        <div class="alert alert-danger" *ngIf = "name.invalid && ( name.dirty || name.touched) ">
+
+                            <div *ngIf= "name.errors">
+                                    Nombre es requerido
+                            </div>
+                            <div *ngIf="name.errors">
+                                Nombre debe tener al menos cuatro caracteres
+                            </div>
+
+                        </div>
+                    </div>  
+                </div>
+                
+                <div class="form-group row">
+                    <label for="apellido" class="col-form-label col-sm-2">Edad</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control"[(ngModel)]="user.age" name='age' placeholder="Introduzca su edad" required minlength="4" #age="ngModel">
+                        <div class="alert alert-danger" *ngIf = "age.invalid && ( age.dirty || age.touched) ">
+
+                            <div *ngIf="age.errors">
+                                    Edad es requerida
+                            </div>
+                            <div *ngIf="age.errors">
+                            Edad debe tener al menos algun caracter de tipo numerico
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-form-label col-sm-2">Email</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control"[(ngModel)]="user.email" name='email'placeholder="Introduzca su email" required minlength="10" #email="ngModel">
+                        <div class="alert alert-danger" *ngIf = "email.invalid && ( email.dirty || email.touched) ">
+
+                            <div *ngIf="email.errors">
+                                    Email es requerido
+                            </div>
+                            <div *ngIf="email.errors">
+                                Email debe ser tipo email
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="createAt" class="col-form-label col-sm-2">Contraseña</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control"[(ngModel)]="user.password" name='password' placeholder="Introduzca su contraseña" required minlength="8" #password="ngModel">
+                        <div class="alert alert-danger" *ngIf = "password.invalid && ( password.dirty || password.touched) ">                            
+                            <div *ngIf="password.errors">
+                                    Passwword es requerido
+                            </div>
+                            <div *ngIf="password.errors">
+                                Paswword debe tener al menos ocho caracteres
+                        </div>
+                   
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary" role ="buttton" (click)="create()" >Crear</button>
+                        
+                    </div>
+                    <div class="my-2 col-sm-6" >
+                        <button class="btn btn-rounded btn-primary" type ="button" [routerLink]="['/login']" > Retroceder</button>
+                        </div>
+                    
+
+                </div>
+        </form>
+        
+        
+    </div>
+    
+</div>
+
+
+<!--*ngIf="!user.name else elseBlock" [disabled]="!clienteForm.form.valid"-->

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+    position: relative;
+    min-height: 100%;
+}
+body{
+margin-bottom: 60px;
+}
+.wrap{
+
+    padding-bottom: 60px;
+}
+.form-group{
+  margin-bottom: 8px; 
+  align-content: center; 
+}
+.card-body{
+    margin-bottom: 8px;
+}

@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping ("/front")
 @AllArgsConstructor
@@ -21,7 +21,7 @@ public class UsersController {
     public ResponseEntity findAllUsers() throws Exception {
         return new ResponseEntity(iUsersService.findAll(),HttpStatus.OK) ;
     }
-    @PostMapping()
+    @PostMapping("/users")
     public ResponseEntity addUsers(@RequestBody User user) throws Exception{
         User userCreated;
         userCreated = iUsersService.addUser(user);
@@ -32,15 +32,17 @@ public class UsersController {
         }
 
     }
-    @GetMapping("/user/{name}")
-    public ResponseEntity findUserByName(@PathVariable(name="name")String name) throws Exception{
+    @GetMapping("/users/{name}")
+    public Boolean findUserByName(@PathVariable(name="name")String name) throws Exception{
         Optional <User>userFound;
         userFound = iUsersService.getUserByName(name);
 
-        if(!userFound.isPresent()) {
-            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("Message:The user with name " +name + " doesn't exist in database");
+        if(userFound.isPresent()) {
+            return
+                    true;
+            //ResponseEntity.status(HttpStatus.NOT_FOUND).body("Message:The user with name " +name + " doesn't exist in database");
         }else{
-            return new ResponseEntity<User>(userFound.get(),HttpStatus.FOUND);
+            return false;
         }
     }
 
