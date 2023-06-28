@@ -1,6 +1,6 @@
 # Practica de desarrollo para Zeo Technology
 
-Esta es la practica de desarrollo para la empresa Zeo technology. Esta practica consta de una aplicacion para dar de alta a usuarios y chequear si esxisten el BBDD. Para
+Esta es la practica de desarrollo para la empresa Zeo technology. Esta practica consta de una aplicacion para dar de alta a usuarios y chequear si existen en la  BBDD. Para
 esta practica he utilizado en parte fron Angular y en el back Spring Boot. Para la base de datos he decidido utilizar H2.
 
 ## Comenzando 🚀
