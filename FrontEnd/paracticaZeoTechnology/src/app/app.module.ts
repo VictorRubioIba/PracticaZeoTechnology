@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 
+
 const routes: Routes = [{path:"", redirectTo:"login", pathMatch:"full"},
 {path:"users", component: UsersComponent},
 {path:"users/new-user", component:NewUserComponent},

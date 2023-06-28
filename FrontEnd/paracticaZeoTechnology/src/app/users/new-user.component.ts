@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
 import swal  from 'sweetalert2';
+import { BootstrapOptions } from '@angular/core';
 
 
 @Component({
@@ -17,18 +18,24 @@ export class NewUserComponent implements OnInit{
 
   public user:User = new User;
   
-
-  public titulo:string = "Crear Usuario"
+  show:boolean=false
+  public titulo:string = "Alta de Usuarios"
   
   constructor(private userService:userService,private router:Router, private activatedRoute:ActivatedRoute){}
 
   public create():void{
 
+
     this.userService.create(this.user).subscribe(
       user => 
       {
+        this.show=true
+        console.log(this.show)
         this.router.navigate(['/users'])
-        swal.fire('Nuevo Usuario', `Usuario ${this.user.name}  creado con exito`, 'success')
+        //swal.fire('Nuevo Usuario', `Usuario ${this.user.name}  creado con exito`, 'success')
+    
+        
+        
     }
     )
   }
