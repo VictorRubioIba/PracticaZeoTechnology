@@ -16,6 +16,7 @@ export class NewUserComponent implements OnInit{
   }
 
   public user:User = new User;
+  
 
   public titulo:string = "Crear Usuario"
   
@@ -27,7 +28,7 @@ export class NewUserComponent implements OnInit{
       user => 
       {
         this.router.navigate(['/users'])
-        swal.fire('Nuevo Usuario', `Usuario${this.user.name}  creado con exito`, 'success')
+        swal.fire('Nuevo Usuario', `Usuario ${this.user.name}  creado con exito`, 'success')
     }
     )
   }

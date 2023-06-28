@@ -8,9 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Optional;
-
 import static com.practicaZeoTechnology.VictorRubio.Dates.USER_1;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -66,26 +63,28 @@ public class ServiceTest {
     void testFindAllByName() throws Exception {
 
         try {
-            when(service.getUserByName(any(String.class))).thenReturn(Optional.of(USER_1));
+            when(service.checkIfExistUser(any(User.class))).thenReturn(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
         String name ="Pepa";
 
-        Assertions.assertNotNull(service.getUserByName(name));
-        Assertions.assertEquals(service.getUserByName(name).get(),USER_1);
+        Assertions.assertNotNull(service.checkIfExistUser(USER_1));
+        Assertions.assertEquals(service.checkIfExistUser(USER_1),true);
     }
 
     @Test
     void testFindAllByNameException() throws Exception {
 
         try {
-            when(service.getUserByName(any(String.class))).thenThrow(EntityNotFoundException.class);
+            when(service.checkIfExistUser(any(User.class))).thenThrow(EntityNotFoundException.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
         String name ="Pepa";
-        Assertions.assertThrows(EntityNotFoundException.class, () -> service.getUserByName(name));
+        Assertions.assertThrows(EntityNotFoundException.class, () -> service.checkIfExistUser(USER_1));
 
     }
+
+
 }

@@ -25,10 +25,13 @@
                 <td class="text-uppercase">{{  user.name}}</td>
                 <td class="number">{{  user.age}}</td>
                 <td class="email">{{  user.email }}</td>
-                <td class="password">**********</td>
+                <td class="password">{{  user.password }}</td>
                 <!--{{  user.password}}-->
         </tr>
 
     </tbody>
     </table>
+    <div class="my-2 col-sm-6" >
+        <button class="btn btn-rounded btn-primary" type ="button" [routerLink]="['/login']" > Retroceder</button>
+        </div>
   </div>

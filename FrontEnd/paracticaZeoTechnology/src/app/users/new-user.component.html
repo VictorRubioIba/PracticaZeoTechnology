@@ -3,7 +3,7 @@
     <div class="card-header">{{titulo}}</div>
 
     <div class="card-body ">
-        <form #clienteForm="ngForm">
+        <form #userForm="ngForm">
             
                 <div class="form-group row ">
                     <label for="nombre" class="col-form-label col-sm-2 text-dark"> Nombre</label>
@@ -72,11 +72,11 @@
 
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-6">
-                        <button class="btn btn-primary" role ="buttton" (click)="create()" >Crear</button>
+                    <div class="col-sm-8">
+                        <button class="btn btn-rounded btn-primary" role ="buttton" (click)="create()" [disabled]="!userForm.form.valid">Crear</button>
                         
                     </div>
-                    <div class="my-2 col-sm-6" >
+                    <div class="my-2 col-sm-8" >
                         <button class="btn btn-rounded btn-primary" type ="button" [routerLink]="['/login']" > Retroceder</button>
                         </div>
                     

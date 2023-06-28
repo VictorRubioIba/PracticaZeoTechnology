@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface IUsersService {
     List<User> findAll() throws Exception;
     User addUser (User user) throws Exception;
-    Optional<User> getUserByName(String name) throws Exception;
+    Boolean checkIfExistUser(User user) throws Exception;
 }

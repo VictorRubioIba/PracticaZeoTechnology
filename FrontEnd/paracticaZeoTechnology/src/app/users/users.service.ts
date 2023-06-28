@@ -12,7 +12,7 @@ import { map } from 'rxjs';
 export class userService {
   
 private urlEndPoint:string ='http://localhost:8080/front/users'
-//private urlEndPointLogin:string ='http://localhost:8080/front/login'
+private urlEndPointLogin:string ='http://localhost:8080/front/login'
 //private httpHeaders = new HttpHeaders({'Content-Type':'application/json'})
 
   constructor(private http: HttpClient) { }
@@ -25,8 +25,8 @@ private urlEndPoint:string ='http://localhost:8080/front/users'
     return this.http.post<User>(this.urlEndPoint,user)
   }
 
-  getLogin(name:string): Observable<Boolean>{
-    return this.http.get<any>(`${this.urlEndPoint}/${name}`)
+  getLogin(user:User): Observable<any>{
+    return this.http.post<any>(this.urlEndPointLogin,user)
     
   }
 

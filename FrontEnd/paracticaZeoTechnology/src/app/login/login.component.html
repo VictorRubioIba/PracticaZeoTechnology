@@ -4,10 +4,27 @@
     <div class="card-body">
         <form method="post">
             <div class="form-group">
-                <input [(ngModel)]="userName"type="text" class="form-control" name="username" id="username" placeholder="Nombre" autofocus required>
+                <input [(ngModel)]="user.name"type="text" class="form-control" name="username" id="username" required minlength="4"placeholder="Nombre" autofocus required #username="ngModel">
+                <div class="alert alert-danger" *ngIf = "username.invalid && ( username.dirty || username.touched) ">
+                    <div *ngIf= "username.errors">
+                            Nombre es requerido
+                    </div>
+                    <div *ngIf="username.errors">
+                        Nombre debe tener al menos cuatro caracteres
+                    </div>
+
+                </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="password" id="password" placeholder="Contraseña" autofocus required>
+                <input [(ngModel)]="user.password"type="password" class="form-control" name="password" id="password" required minlength="8" placeholder="Contraseña" autofocus required #password="ngModel">
+                <div class="alert alert-danger" *ngIf = "password.invalid && ( password.dirty || password.touched) ">                            
+                    <div *ngIf="password.errors">
+                            Passwword es requerido
+                    </div>
+                    <div *ngIf="password.errors">
+                        Paswword debe tener al menos ocho caracteres
+                </div>
+                </div>
             </div>
             <div class="form-group">
                 <input (click)="login()" type="submit" class="btn btn-lg btn-primary btn-block"  value="Login">

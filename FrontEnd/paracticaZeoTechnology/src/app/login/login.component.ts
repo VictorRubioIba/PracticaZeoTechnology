@@ -19,54 +19,37 @@ export class LoginComponent implements OnInit{
   public titulo:string = "Login"
   constructor(private userService: userService,private router:Router, private activatedRoute:ActivatedRoute){}
 
-  user:User = new User;
+  public user:User = new User();
+  
+  
+  
   userExist:boolean=false
   
-  userName:string=""
-  password:string=""
+
+
 
 
   public login():void{
     console.log("*********")
-    console.log(this.userName)
-    this.userService.getLogin(this.userName).subscribe(
+    console.log(this.user.name)
+    this.userService.getLogin(this.user).subscribe(
       
       userExist => {
         console.log(userExist)
         if(userExist){
           this.router.navigate(['/users'])
-          swal.fire(' Usuario Encontrado', `Usuario ${this.userName}  esta en la base de datos`, 'success')
+          swal.fire(' Usuario Encontrado', `Usuario ${this.user.name}  esta en la base de datos`, 'success')
         }else{
-          swal.fire(' Usuario No Encontrado', `Usuario ${this.userName}  no esta en la base de datos`, 'success')
+          //swal.fire(' Usuario No Encontrado', `Usuario ${this.user.name}  no esta en la base de datos`, 'success')
+         swal.fire({
+      title: 'Usuario no encontrado',
+      text: `El usuario o la contraseña son incorrectos`,
+      icon: 'warning',
+    
+    })
         }
       
       })
   }
 }
 
-/**
- * 
- * 
- * 
- * cargarCliente():void{
-    this.activatedRoute.params.subscribe(params => {
-      let id = params['id']
-      if(id){
-        this.ClienteService.getCliente(id).subscribe((cliente) => this.cliente = cliente)
-      }
-    })
-
-  }
- */
- /*this.activatedRoute.params.subscribe(
-        params=> 
-        {
-          
-           const userName = params['username'];
-          console.log(userName)
-          if(userName){
-            this.userService.getLogin(userName).subscribe((user)=>this.user=user)
-          }
-          
-      }
-      )*/

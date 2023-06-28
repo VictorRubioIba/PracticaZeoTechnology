@@ -69,27 +69,27 @@ public class ControllerTest {
     void testFindAllByName() throws Exception {
 
         try {
-            when(usersController.findUserByName(any(String.class))).thenReturn(true);
+            when(usersController.findUserByName(any(User.class))).thenReturn(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
         String name ="Pepa";
         ResponseEntity actualUser = new ResponseEntity( new User("Pepa",18,"pepa@hotmail.com","123456"),HttpStatus.OK);
 
-        Assertions.assertNotNull(usersController.findUserByName(name));
-        Assertions.assertEquals(usersController.findUserByName(name),actualUser);
+        Assertions.assertNotNull(usersController.findUserByName(USER_1));
+        Assertions.assertEquals(usersController.findUserByName(USER_1),true);
     }
 
     @Test
     void testFindAllByNameException() throws Exception {
 
         try {
-            when(usersController.findUserByName(any(String.class))).thenThrow(EntityNotFoundException.class);
+            when(usersController.findUserByName(any(User.class))).thenThrow(EntityNotFoundException.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
         String name ="Pepa";
-        Assertions.assertThrows(EntityNotFoundException.class, () -> usersController.findUserByName(name));
+        Assertions.assertThrows(EntityNotFoundException.class, () -> usersController.findUserByName(USER_1));
 
     }
 

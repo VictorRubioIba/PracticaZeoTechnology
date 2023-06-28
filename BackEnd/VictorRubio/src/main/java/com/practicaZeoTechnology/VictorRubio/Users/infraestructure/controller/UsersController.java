@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping ("/front")
@@ -32,8 +31,11 @@ public class UsersController {
         }
 
     }
-    @GetMapping("/users/{name}")
-    public Boolean findUserByName(@PathVariable(name="name")String name) throws Exception{
+    @PostMapping("/login")
+    public Boolean findUserByName(@RequestBody User user) throws Exception{
+
+        return iUsersService.checkIfExistUser(user);
+        /*
         Optional <User>userFound;
         userFound = iUsersService.getUserByName(name);
 
@@ -44,6 +46,8 @@ public class UsersController {
         }else{
             return false;
         }
+
+         */
     }
 
 
