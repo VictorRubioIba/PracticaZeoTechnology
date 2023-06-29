@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping ("/front")
@@ -20,8 +21,10 @@ public class UsersController {
     public ResponseEntity findAllUsers() throws Exception {
         return new ResponseEntity(iUsersService.findAll(),HttpStatus.OK) ;
     }
+
     @PostMapping("/users")
     public ResponseEntity addUsers(@RequestBody User user) throws Exception{
+
         User userCreated;
         userCreated = iUsersService.addUser(user);
         if(userCreated.equals(user)){
@@ -29,25 +32,12 @@ public class UsersController {
         }else{
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body("The user is not created with exit");
         }
-
     }
     @PostMapping("/login")
     public Boolean findUserByName(@RequestBody User user) throws Exception{
 
         return iUsersService.checkIfExistUser(user);
-        /*
-        Optional <User>userFound;
-        userFound = iUsersService.getUserByName(name);
 
-        if(userFound.isPresent()) {
-            return
-                    true;
-            //ResponseEntity.status(HttpStatus.NOT_FOUND).body("Message:The user with name " +name + " doesn't exist in database");
-        }else{
-            return false;
-        }
-
-         */
     }
 
 

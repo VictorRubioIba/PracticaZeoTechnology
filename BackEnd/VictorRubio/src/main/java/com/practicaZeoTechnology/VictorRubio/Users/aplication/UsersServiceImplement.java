@@ -57,8 +57,6 @@ public class UsersServiceImplement implements IUsersService {
                 .stream()
                 .filter(elem -> elem.getName().equals(user.getName()))
                 .anyMatch(elem -> BCrypt.checkpw(user.getPassword(),elem.getPassword()))
-                //.filter(elem -> BCrypt.checkpw(elem.getPassword(),user.getPassword()))
-                //.findFirst()
                 ;
 
     }
@@ -92,8 +90,8 @@ public class UsersServiceImplement implements IUsersService {
 
     private String cryptPassword(String password){
 
-       String passwordEncrypted = BCrypt.hashpw(password,BCrypt.gensalt());
-        return passwordEncrypted;
+       return BCrypt.hashpw(password,BCrypt.gensalt());
+
 
     }
 
