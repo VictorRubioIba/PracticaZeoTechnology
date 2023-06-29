@@ -13,7 +13,7 @@ import swal  from 'sweetalert2';
 export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
-  //this.login();
+
   }
 
   public titulo:string = "Login"
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['/users'])
           swal.fire(' Usuario Encontrado', `Usuario ${this.user.name}  esta en la base de datos`, 'success')
         }else{
-          //swal.fire(' Usuario No Encontrado', `Usuario ${this.user.name}  no esta en la base de datos`, 'success')
+        
          swal.fire({
       title: 'Usuario no encontrado',
       text: `El usuario o la contraseña son incorrectos`,

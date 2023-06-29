@@ -13,7 +13,7 @@ export class userService {
   
 private urlEndPoint:string ='http://localhost:8080/front/users'
 private urlEndPointLogin:string ='http://localhost:8080/front/login'
-//private httpHeaders = new HttpHeaders({'Content-Type':'application/json'})
+
 
   constructor(private http: HttpClient) { }
 

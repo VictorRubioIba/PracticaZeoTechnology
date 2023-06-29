@@ -32,7 +32,7 @@ export class NewUserComponent implements OnInit{
         this.show=true
         console.log(this.show)
         this.router.navigate(['/users'])
-        //swal.fire('Nuevo Usuario', `Usuario ${this.user.name}  creado con exito`, 'success')
+        swal.fire('Nuevo Usuario', `Usuario ${this.user.name}  creado con exito`, 'success')
     
         
         
@@ -42,54 +42,3 @@ export class NewUserComponent implements OnInit{
 }
 
 
-/**
- 
-
-
-
-
-export class FormComponent implements OnInit{
-
-
-  
-  cargarCliente():void{
-    this.activatedRoute.params.subscribe(params => {
-      let id = params['id']
-      if(id){
-        this.ClienteService.getCliente(id).subscribe((cliente) => this.cliente = cliente)
-      }
-    })
-
-  }
-
-public create():void{
-
-  this.ClienteService.create(this.cliente).subscribe(
-    cliente => 
-    {
-      this.router.navigate(['/clientes'])
-      swal.fire('Nuevo Cliente', `Cliente ${this.cliente.nombre}  creado con exito`, 'success')
-  }
-  )
-}
-
-public update():void{
-
-  this.ClienteService.update(this.cliente).subscribe(
-    
-    cliente =>{
-    this.router.navigate(['/clientes'])
-    swal.fire('Cliente actualizado',`Cliente ${this.cliente.nombre}actualizado con exito`, 'success')
-}
-)
-}
-}
-
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
