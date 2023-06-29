@@ -30,9 +30,9 @@ _Software necesario para la ejecución correcta de la aplicación_
 _Ponemos a continuación los comandos necesarios para poder iniciar la aplicación_
 
 - Angular
-  - Para comenzar instalaremos SweetAlert2 que es una extensión para Angular
+  - Para comenzar instalaremos los paquetes  para Angular
 ```
-npm install --save sweetalert2
+npm install --save 
 ```
 
  - Hacemos un pequeño update para tener todo actualizado
