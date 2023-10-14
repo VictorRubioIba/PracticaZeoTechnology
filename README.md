@@ -45,4 +45,4 @@ Para que funcione correctamente, hay que cambiar el application-properties del b
 ## Autor ✒️
 
 
-* **Victor Rubio Ibáñez**
+* **Víctor Rubio Ibáñez**
